@@ -1,0 +1,173 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-color: #e9ebee;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+footer{
+	margin-top: 100px;
+}
+
+#body_container{
+	margin-top: 70px;
+	min-height: 500px;
+}
+
+.form-header{
+	text-align: center;
+}
+
+#menu_container{
+	margin-top: 50px;
+	text-align: center;
+}
+
+.tablaFormulario
+{
+	float: left;
+	width:45%;
+	color:black;
+	background-color: inactivecaption;
+	border: 2px solid green;
+	margin-top: 2%;
+}
+
+.tablaFormulario .input2
+{
+	width: 90%;
+	margin-left: 5%;
+}
+.tablaFormulario input 
+{
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 30px;
+	font-size: 12pt;
+}
+
+.tablaFormulario  h3
+{
+	text-align: center;
+}
+
+.tablaFormulario2
+{
+	float: left;
+	width:100%;
+	color:black;
+	background-color: inactivecaption;
+	border: 2px solid green;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+.tablaFormulario2 input 
+{
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 30px;
+	font-size: 20pt;
+	text-align: center;
+	margin-bottom: 2%;
+}
+
+.tablaFormulario2  h3
+{
+	text-align: center;
+}
+
+.tablaPendientes
+{
+	width:100%;
+	text-align:center;
+	color:black;
+	background-color: inactivecaption;
+	border: 2px solid green;
+	margin-top: 2%;
+	
+}
+
+.cabecera
+{
+	background-color: olive;
+	color:black;
+	font-size: 20pt;
+	padding-top:40px;
+	padding-bottom:40px;
+	height: 20px;
+	text-align: center;
+}
+.footer
+{
+	float:left;
+	background-color: olive;
+	color:black;
+	font-size: 20pt;
+	padding-top:40px;
+	padding-bottom:40px;
+	height: 20px;
+	text-align: center;
+	margin-top: 20px;
+	width:100%; 
+}
+
+.btnVerde
+{
+	background-color: green;
+	color:white;
+	border: green;
+	cursor: pointer;
+}
+.btnAmarillo
+{
+	top: 10%;
+	background-color: yellow;
+	color:black;
+	border: yellow;
+	cursor: pointer;
+}
+.btnRojo
+{
+	top: 10%;
+	background-color: red;
+	color:white;
+	border: red;
+	cursor: pointer;
+	
+}
+.volver
+{
+	height: 40px;
+	margin-top: 2%;
+	width: 10%;
+	text-align: center;
+}
+
+.rowVerde
+{
+	background-color: inactivecaption;
+	margin-top: 2%;
+	padding: 4%;
+	height: 30px;
+}
+.buscar
+{
+	width:400px;
+	text-align:center;
+	color:black;
+	background-color: inactivecaption;
+	border: 2px solid green;
+	margin-top: 2%;
+	font-size: 16pt;
+	
+	
+}
+.buscar input {
+	100%;
+}

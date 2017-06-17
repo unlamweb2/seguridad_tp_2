@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="_Header.xhtml"></ui:include>
+	<ui:include src="usuarioNormalMenu.xhtml"></ui:include>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col s12 l8 offset-l2">
+				<div class="col s12 l8 offset-l2" style="background-color: white;">
+				<ui:repeat var="tarea" value="#{tareaBean.tareaPorId}">
+					<div style="padding: 10px; border-radius: 3px;">
+						<div class="form-header"><h5>#{tarea.nombre}</h5></div>
+						<div class="row"><strong>Descripción:</strong> #{tarea.descripcion}</div>
+						<div class="row"><strong>Acceso:</strong> #{tarea.acceso}</div>
+						<div class="row"><strong>Estado:</strong> #{tarea.estado}</div>
+					</div>
+				</ui:repeat>
+			</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 l8 offset-l2">
+				<div class="form-header"><h5>Participantes</h5></div>
+				<ui:repeat var="part" value="#{tareaBean.listaDeParticipantesDeUnaTarea.toArray()}">
+				<h5><strong>Usuario: </strong> #{part.nombre}</h5>
+				</ui:repeat>
+			</div>
+		</div>
+		
+	</div>
+		
+	<ui:include src="_Footer.xhtml"></ui:include>
+</h:body>
+</html>

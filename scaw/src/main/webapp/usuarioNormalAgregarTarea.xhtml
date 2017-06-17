@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="_Header.xhtml"></ui:include>
+	<ui:include src="usuarioNormalMenu.xhtml"></ui:include>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m8 offset-m2">
+				<div class="form-header"><h5>Agregar nueva tarea</h5></div>
+				<h:form>
+					<div class="row">
+						<h:inputText id="nombre" a:placeholder="Nombre" value="#{tareaBean.nombre}" required="true" requiredMessage="Ingrese el nombre de la tarea"></h:inputText>
+						<h:message for="nombre"></h:message>
+					</div>
+					
+					<div class="row">
+						<h:inputText id="descripcion" a:placeholder="Descripción" value="#{tareaBean.descripcion}" required="true" requiredMessage="Ingrese la descripción de la tarea"></h:inputText>
+						<h:message for="descripcion"></h:message>
+					</div>
+					
+					<div class="row">
+						<h:selectOneRadio value="#{tareaBean.acceso}">
+							<f:selectItem itemValue = "publica" itemLabel = "Pública" />
+							<f:selectItem itemValue = "privada" itemLabel = "Privada" />
+						</h:selectOneRadio>
+					</div>
+					
+					<div class="row">
+						<div class="col s12 m4 offset-m4">
+							<h:commandButton styleClass="waves-effect waves-light btn blue darken-2" value="Crear tarea" action="#{tareaBean.agregarTarea}"></h:commandButton>
+						</div>
+					</div>
+				</h:form>
+			</div>
+		</div>
+		<h:form>
+		</h:form>
+	</div>
+	<ui:include src="_Footer.xhtml"></ui:include>
+</h:body>
+</html>

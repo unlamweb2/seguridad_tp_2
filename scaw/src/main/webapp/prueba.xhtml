@@ -1,0 +1,62 @@
+
+
+		<ui:insert name="header">
+			<ui:include src="_Header.xhtml"></ui:include>
+		</ui:insert>
+		
+		<ui:insert name="footer">
+			<ui:include src="_Footer.xhtml"></ui:include>
+		</ui:insert>
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+
+<h:head></h:head>
+<h:body>
+	<h3>Usuarios TOOS</h3>
+		<h:dataTable value="#{usuarioBean.listaDeUsuarios}" var="usuario">
+
+			<h:column>
+				Nombre : #{usuario.nombre} #{usuario.id}
+			</h:column>
+		
+		</h:dataTable>
+	<h3>Todas lasa tarea</h3>
+	<h:dataTable value="#{tareaBean.listaDeTodasLasTareas}" var="tarea">
+
+			<h:column> 
+				Nombre : #{tarea.nombre} estado : #{tarea.estado}  ID: #{tarea.id}
+			</h:column>
+		
+		</h:dataTable>
+		
+		<h3>Todas lasa tarea C</h3>
+	<h:dataTable value="#{tareaBean.listaDeTareasCOMPLETASPorId2}" var="tarea">
+
+			<h:column> 
+				Nombre : #{tarea.nombre} estado : #{tarea.estado}  ID: #{tarea.id}
+			</h:column>
+		
+		</h:dataTable>
+	
+	
+		
+</h:body>
+
+</html>
