@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+</h:head>
+
+<h:body>
+	<ui:include src="_Header.xhtml"></ui:include>
+	<ui:include src="usuarioNormalMenu.xhtml"></ui:include>
+		
+		<!-- cuerpo  -->
+		<ui:insert name="cuerpo">
+		
+			
+				ver tarea
+				
+				<h:dataTable value="#{tareaBean.tareaPorId}" var="tarea">
+					
+					<h:column>
+						Nombre : #{tarea.nombre}  
+					</h:column>
+					<h:column>
+						Descripcion : #{tarea.descripcion}
+					</h:column>
+					<h:column>
+						Acceso  : #{tarea.acceso}
+					</h:column>
+					
+					<h:column>
+						Estado : #{tarea.estado}
+					</h:column>
+					
+					<h:column>
+						<h:form>	
+							<h:commandButton id="editar" value="editar" action="#{tareaBean.editar}">
+								
+							</h:commandButton>			
+						</h:form> 	
+					</h:column>
+					
+					<h:column>
+						<h:form>	
+							<h:commandButton id="idTarea" value="Completar" action="#{tareaBean.setearEstadoDeTarea}">
+								<f:param name="idTareaACompletar" value="#{tarea.id}" />
+							</h:commandButton>			
+						</h:form> 	
+					</h:column>
+					
+					<h:column >
+						<h:form>	
+							<h:inputHidden id="id" value="#{tarea.id}"></h:inputHidden >
+							<h:commandButton action="usuarioNomalVerTarea" value="AgregarParticipante"></h:commandButton>
+						</h:form> 	
+					</h:column>
+					<h:column>
+						<h:form>	
+							<h:commandButton id="idTarea" value="Eliminar" action="#{tareaBean.eliminarTarea}">
+								<f:param name="idTareaAEliminar" value="#{tarea.id}" />
+							</h:commandButton>			
+						</h:form> 	
+					</h:column>
+	
+			</h:dataTable>
+		</ui:insert>
+	
+	
+	
+</h:body>
+</html>

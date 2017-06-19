@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="_Header.xhtml"></ui:include>
+	<ui:include src="usuarioAdministradorMenu.xhtml"></ui:include>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 l8 offset-l2">
+				<div class="form-header"><h5>Lista de usuarios</h5></div>
+			</div>
+			<div class="col s12 l8 offset-l2">
+				<ui:repeat value="#{usuarioBean.listaDeUsuarios}" var="usuario">
+					<div class="card white">
+		            <div class="card-content black-text">
+		              <span class="card-title">#{usuario.nickName}</span>
+		              <p>
+		              <strong>Nombre: </strong>#{usuario.nombre}
+		              <br/>
+		              <strong>Apellido: </strong>#{usuario.apellido}
+		              <br/>
+		              <strong>Aprobado: </strong>
+		              <h:outputText rendered="#{usuario.estaAprobado gt 0}" value="Si"/>
+		              <h:outputText rendered="#{usuario.estaAprobado lt 1}" value="No"/>
+		              </p>
+		            </div>
+		            <div class="card-action">
+		            <div class="row">
+		            	<div class="col s5">
+			            	<h:form>
+							<h:commandButton styleClass="waves-effect waves-teal btn-flat blue-text" id="idUsuarioABM" value="Modificar" action="#{usuarioBean.modificarUsuario}">
+								<f:param name="idParamEditar" value="#{usuario.id}" />
+							</h:commandButton>
+						</h:form>
+		            	</div>
+		            	<div class="col s5">
+		            	<h:form>
+							<h:commandButton styleClass="waves-effect waves-teal btn-flat red-text" id="idUsuarioABM" value="Eliminar" action="#{usuarioBean.eliminarUnUsuario}">
+								<f:param name="idParamEliminar" value="#{usuario.id}" />
+							</h:commandButton>
+						</h:form>
+		            	</div>
+		            </div>
+		            </div>
+		          </div>
+				</ui:repeat>
+			</div>
+		</div>
+	</div>
+			
+	<ui:include src="_Footer.xhtml"></ui:include>
+</h:body>
+</html>

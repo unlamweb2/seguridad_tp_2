@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</h:head>
+
+<h:body>
+	
+		<ui:insert name="header">
+			<ui:include src="_Header.xhtml"></ui:include>
+		</ui:insert>
+		
+		<div class="container" id="body_container">
+			<div class="row">
+				<div class="col s12 m5 left">
+					<div class="form-header"><h5>Login</h5></div>
+					<h:form>
+						<div class="row">
+							<h:inputText value="#{tareaBean.nickNameUsuario}" a:placeholder="Nombre de usuario" id="nickNameUsuario" required="true" requiredMessage="Ingrese su nombre de usuario"></h:inputText>
+							<h:message for="nickNameUsuario"></h:message>
+						</div>
+						<div class="row">
+							<h:inputSecret value="#{tareaBean.contrasenaUsuario}" a:placeholder="Password" id="contrasenaUsuario" required="true" requiredMessage="Ingrese su password"></h:inputSecret>
+							<h:message for="contrasenaUsuario"></h:message>
+						</div>	
+						<div class="row">
+							<div class="col offset-m4">
+								<h:commandButton action="#{tareaBean.loginUsuarioEnTarea}" value="Login" styleClass="waves-effect waves-light btn blue darken-2"></h:commandButton>
+							</div>
+						</div>
+					</h:form>
+				</div>
+				
+				<div class="col s12 m5 right">
+					<div class="form-header"><h5>Registro</h5></div>
+					<h:form>
+						<div class="row">
+							<h:inputText value="#{usuarioBean.nombre}" a:placeholder="Nombre" id="registro_nombre" required="true" requiredMessage="Ingrese su nombre"></h:inputText>
+							<h:message for="registro_nombre"></h:message>
+						</div>
+						
+						<div class="row">
+							<h:inputText value="#{usuarioBean.apellido}" a:placeholder="Apellido" id="registro_apellido" required="true" requiredMessage="Ingrese su apellido"></h:inputText>
+							<h:message for="registro_apellido"></h:message>
+						</div>
+						
+						<div class="row">
+							<h:inputText value="#{usuarioBean.nickName}" a:placeholder="Nombre de usuario" id="registro_nickname" required="true" requiredMessage="Ingrese su nombre de usuario"></h:inputText>
+							<h:message for="registro_nickname"></h:message>
+						</div>
+						
+						<div class="row">
+							<h:inputSecret value="#{usuarioBean.contrasena}" a:placeholder ="Password" id="contrasena" required="true" requiredMessage="Ingrese una contraseña"></h:inputSecret>
+							<h:message for="contrasena"></h:message>
+						</div>	
+						
+						<div class="row">
+							<div class="col offset-m4">
+								<h:commandButton action="#{usuarioBean.registro}" value="Registrarse" styleClass="waves-effect waves-light btn blue darken-2"></h:commandButton>
+							</div>
+						</div>
+					</h:form>
+				</div>
+			</div>
+		</div>
+		
+		<ui:insert name="footer">
+			<ui:include src="_Footer.xhtml"></ui:include>
+		</ui:insert>
+</h:body>
+</html>

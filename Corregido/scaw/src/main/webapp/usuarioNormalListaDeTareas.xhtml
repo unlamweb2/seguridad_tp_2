@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="_Header.xhtml"></ui:include>
+	<ui:include src="usuarioNormalMenu.xhtml"></ui:include>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 l8 offset-l2">
+				<div class="form-header"><h5>Lista de tareas completas</h5></div>
+				<div class="row">
+					<ui:repeat value="#{tareaBean.listaDeTareasCOMPLETASPorId}" var="tarea">
+			            <div class="col s12 l5">
+				          <div class="card">
+				            <div class="card-content black-text">
+				              <span class="card-title">#{tarea.nombre}</span>
+				              <p>
+				              <strong>Descripción: </strong>#{tarea.descripcion}
+				              <br>
+				              <strong>Estado</strong>: #{tarea.estado}
+				              </br>
+				              <strong>Modo de acceso</strong>: #{tarea.acceso}</p>
+				            </div>
+				            <div class="card-action">
+				            <div class="row">
+				            	<div class="col s6">
+				            	<h:form>
+				              	<h:commandButton styleClass="waves-effect btn-flat green white-text" id="idTarea" value="Pendiente" action="#{tareaBean.setearEstadoDeTarea2}">
+				              		<f:param name="idTareaAPendiente" value="#{tarea.id}"/>
+				              	</h:commandButton>
+				              </h:form>
+				            </div>
+				            
+				            <div class="col s6">
+				            	<h:form>
+					              	<h:commandButton styleClass="waves-effect btn-flat red white-text" id="idTarea" value="Eliminar" action="#{tareaBean.eliminarTarea}">
+						            	<f:param name="idTareaAEliminar" value="#{tarea.id}"/>
+						            </h:commandButton>
+					              </h:form>
+				            </div>
+				            </div>
+				            </div>
+				          </div>
+				        </div>
+			        </ui:repeat> 
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col s12 m8 offset-m2">
+				<div class="form-header">
+					<h5>Lista de tareas pendientes</h5>
+				</div>
+				<div class="row">
+					<ui:repeat value="#{tareaBean.listaDeTareasPENDIENTESPorId}" var="tarea">
+						<div class="col s12 l5">
+				          <div class="card">
+				            <div class="card-content black-text">
+				              <span class="card-title">#{tarea.nombre}</span>
+				              <p>
+				              <strong>Descripción: </strong>#{tarea.descripcion}
+				              <br/>
+				              <strong>Modo de acceso</strong>: #{tarea.acceso}</p>
+				            </div>
+				            <div class="card-action">
+				            <div class="row">
+				            	<div class="col s12">
+				            	<h:form>
+					              	<h:commandButton styleClass="waves-effect btn-flat green white-text" id="idTareaVer" value="Ver tarea" action="#{tareaBean.verTarea}">
+										<f:param name="idTareaAVer" value="#{tarea.id}" />
+									</h:commandButton>	
+				              	</h:form>
+				            </div>
+				            </div>
+				            </div>
+				          </div>
+				        </div>
+					</ui:repeat>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<ui:include src="_Footer.xhtml"></ui:include>
+</h:body>
+</html>
