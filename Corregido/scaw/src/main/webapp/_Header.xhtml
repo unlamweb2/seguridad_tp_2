@@ -1,0 +1,20 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <nav>
+	    <div class="nav-wrapper blue darken-2">
+	      <div class="container">
+	      	<a href="index.xhtml" class="brand-logo">Lista de tareas</a>
+	      	<ul id="nav-mobile" class="right hide-on-med-and-down">
+		      	<h:panelGroup>
+		        	<li><h:form>
+		        		<h:commandLink action="tareasAnonimas" value="Tareas Publicas"></h:commandLink>
+		        	</h:form></li>
+		        </h:panelGroup>
+		      </ul>
+	      </div>
+	    </div>
+	  </nav>
+</ui:composition>

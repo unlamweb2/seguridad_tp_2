@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	
+	>
+
+<h:head>
+	<title>SCAW - Presentacióin de JSF</title>
+	<ui:include src="_Links.xhtml"></ui:include>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+</h:head>
+
+<h:body>
+	<ui:include src="_Header.xhtml"></ui:include>
+	<ui:include src="usuarioNormalMenu.xhtml"></ui:include>
+	<div class="container">
+		<div class="row">
+			<div class="col s12 l8 offset-l2">
+				<div class="form-header"><h5>Editar tarea</h5></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 l8 offset-l2">
+				<h:form>
+					<div class="row">
+						<h:inputText id="nombre" value = "#{tareaBean.nombre}"></h:inputText>
+					</div>
+					<div class="row">
+						<h:inputText  styleClass="input2" id="descripcion" value = "#{tareaBean.descripcion}"></h:inputText> 
+					</div>
+					<div class="row">
+						<h:selectOneRadio id="acceso" value="#{tareaBean.acceso}">
+							<f:selectItem itemValue = "publica" itemLabel = "Pública" />
+							<f:selectItem itemValue = "privada" itemLabel = "Privada" />
+						</h:selectOneRadio>
+					</div>
+					
+					<div class="row">
+						<h:selectOneRadio id="estado" value="#{tareaBean.estado}">
+							<f:selectItem itemValue = "pendiente" itemLabel = "Pendiente" />
+							<f:selectItem itemValue = "completa" itemLabel = "Completa" />
+						</h:selectOneRadio>
+					</div>
+					<div class="row">
+						<h:commandButton styleClass="waves-effect waves-light btn blue darken-2" value="EditarTarea" action="#{tareaBean.editarTarea2}">
+							<f:param name="idTareaAVer" value="#{tareaBean.id}" />
+						</h:commandButton>
+					</div>
+				</h:form>
+			</div>
+		</div>
+	</div>
+
+	<ui:include src="_Footer.xhtml"></ui:include>
+</h:body>
+</html>
